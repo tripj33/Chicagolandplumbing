@@ -1,0 +1,87 @@
+@mixin flexContainer($flexDirection, $height, $justify) {
+    display: flex;
+    flex-direction: $flexDirection;
+    height: $height;
+    justify-content: $justify;
+
+}
+
+body,
+html {
+    margin: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    .top {
+        @include flexContainer(row, 100px, center);
+        background: red;
+        align-content: center;
+
+        div {
+            align-self: center;
+        }
+        .phone {
+            height: 30px;
+            background: green;
+            flex: 3;
+        }
+        .logo {
+            height: 30px;
+            background: yellow;
+            flex: 2;
+        }
+        .menu {
+            height: 30px;
+            background: blue;
+            flex: 3;
+        }
+    }
+    .bottom {
+        @include flexContainer(row, 100%, center);
+        background: pink;
+        margin-left: 100vw; 
+        div {
+            align-self: center;
+        }
+
+        nav {
+            overflow: hidden;
+
+            ul {
+                display: flex;
+                flex-direction: column;
+                list-style-type: none;
+                width: 100vw;
+                padding: 0;
+                height: calc(100vh - 150px});
+                li {
+                    padding: 10px;
+                    align-items: start;
+                    ul {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: start;
+                        margin: 0;
+                        padding: 0;
+                        // overflow: auto;
+                        display: none;
+                        height: fit-content;
+                        // height: fit-content;
+                        li {
+                            // display:inline-flex;
+                            // background: blueviolet;
+                            // border: chartreuse;
+                            }
+                        li:last-child{
+                            padding-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+    
+}
